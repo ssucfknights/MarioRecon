@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player_controller : MonoBehaviour {
 
@@ -17,6 +18,12 @@ public class Player_controller : MonoBehaviour {
 
 	bool doubleJump = true;
 
+	public Text scoreText;
+	public int score;
+	private string holder;
+
+
+
 
 
 
@@ -31,6 +38,11 @@ public class Player_controller : MonoBehaviour {
 
 	void Update ()
 	{
+
+
+		UpdateScore ();
+
+
 		if ((grounded || !doubleJump) && Input.GetKeyDown (KeyCode.Space)) {
 
 			GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce));
@@ -82,4 +94,17 @@ public class Player_controller : MonoBehaviour {
 		theScale.x *= -1;
 		transform.localScale = theScale;
 	}
+
+
+
+
+	void UpdateScore(){
+
+
+
+		holder = score.ToString ("D6");
+		scoreText.text = holder;
+
+	}
+
 }

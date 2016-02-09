@@ -8,7 +8,7 @@ public class BreakBlock : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player" )
+		if (other.name == "HeadCheck" )
 		{
 			Debug.Log ("PLAYER HIT");
 			Destroy(this.gameObject);
