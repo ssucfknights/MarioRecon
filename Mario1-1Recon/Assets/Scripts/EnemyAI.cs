@@ -5,6 +5,8 @@ public class EnemyAI : MonoBehaviour {
 
 	public Vector2 death;
 	public float speed = 3f;
+	//for score to be represented in UI
+	public GameObject score;
 
 
 
@@ -27,6 +29,9 @@ public class EnemyAI : MonoBehaviour {
 		{
 
 			if (other.name == "GroundCheck") {
+				//references UI script and adds 100 to the variable score
+				Score uiscript = score.GetComponent<Score> ();
+				uiscript.score = uiscript.score + 100;
 				Destroy (this.gameObject);
 			} 
 			else {
